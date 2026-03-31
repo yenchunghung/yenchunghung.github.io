@@ -15,7 +15,7 @@ Education
 ======
 * **PhD in Applied Mathematics**, Université Savoie Mont Blanc
   * *2021 – 2025*
-  * **Thesis:** The enhanced breaking wave model and the morphodynamic coupling
+  * **Thesis:** [The enhanced breaking wave model and the morphodynamic coupling](https://theses.hal.science/tel-05351767) 
   * **Defense date:** 2025/03/27
   * **Advisor:** Didier Bresch, Julien Chauchat, Maria Kazakova
   * **Focus:** Develop a hyperbolic breaking wave model with improved dispersive properties, modify and improve the breaking criteria proposed by M. Kazakova and G. L. Richard (2019), study the coupling with sediment transport equations
