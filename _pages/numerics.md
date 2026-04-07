@@ -11,8 +11,8 @@ author_profile: true
 
 ### 1. The Dispersive-Hyperbolic Model
 The following simulations are based on **depth-averaged models** that account for both dispersive effects and energy dissipation during wave breaking. The physical setup and variable definitions are illustrated below:
-![Model Setup and Variable Definition](/images/numerics/setup.png)
-*Figure 1: Definition of physical variables and coordinate system for the depth-averaged model.*
+<img src="/images/numerics/setup.png" alt="Model Setup" style="width: 70%; display: block; margin: 0 auto;">
+*<p align="center">Figure 1: Definition of physical variables and coordinate system for the depth-averaged model.*
 
 The governing system is formulated as follows:
 $$
@@ -24,6 +24,7 @@ $$
 		&\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle+\frac{4\nu_T}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_TW}{h^2}\frac{\partial U}{\partial x}
 \end{aligned}
 $$
+\\
 **Where:**
 * $h$: The water depth.
 * $U, W$: Depth-averaged horizontal and vertical velocity, respectively.
