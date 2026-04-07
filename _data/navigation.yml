@@ -14,8 +14,8 @@ main:
   - title: "Conferences"
     url: /conferences/
 
-  # - title: "Talks"
-  #   url: /talks/    
+  - title: "Numerics & Simulations"
+    url: /numerics/    
 
   # - title: "Teaching"
   #   url: /teaching/    
