@@ -15,8 +15,6 @@ The following simulations are based on **depth-averaged models** that account fo
 
 *Figure 1: Definition of physical variables and coordinate system for the depth-averaged model.*
 {: .text-center}
-# <img src="/images/numerics/setup.png" alt="Model Setup" style="width: 50%; display: block; margin: 0 auto;">
-# *Figure 1: Definition of physical variables and coordinate system for the depth-averaged model.*
 
 The governing system is formulated as follows:
 <center>
@@ -35,6 +33,9 @@ $$
 * $$U, W$$: Depth-averaged horizontal and vertical velocity, respectively.
 * $$P$$: Depth-averaged non-hydrostatic pressure.
 * $$\varphi$$: **Enstrophy**, tracking the vorticity magnitude in the fluid.
+* $$a_c$$: Acoustic sound velocity (for the pressure wave) (chosen value).
+* $$\langle P^r\rangle$$: Energy dissipation due to wave breaking.
+* $$\nu_T$$: Turbulent viscosity.
 
 ---
 
