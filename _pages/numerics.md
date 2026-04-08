@@ -58,7 +58,7 @@ $$
     &\frac{\partial hW^\ast}{\partial t}+\frac{\partial hUW^\ast}{\partial x} = \frac{3}{2}P+3\frac{\nu_T}{\alpha}\frac{\partial U}{\partial x}+4\frac{\alpha-1}{\alpha^2}{W^{\ast}}^2+\frac{\alpha-1}{2\alpha}gh^2\frac{\partial S}{\partial x}\\
     &\frac{\partial hP}{\partial t}+\frac{\partial hUP}{\partial x} = -a_c^2\left(\alpha h\frac{\partial U}{\partial x}+2W^\ast\right)\\
 	&\frac{\partial hS}{\partial t}+\frac{\partial hUS}{\partial x} = 2h\frac{\partial W^\ast}{\partial x}+\frac{2}{\alpha}W^\ast S\\
-	&\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle+\frac{4\nu_T}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_TW}{\alpha^2h^2}\frac{\partial U}{\partial x}
+	&\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle+\frac{4\nu_T}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_TW^\ast}{\alpha^2h^2}\frac{\partial U}{\partial x}
 \end{aligned}
 $$
 </center>
@@ -74,6 +74,7 @@ To solve numerically the system of partial differential equations (PDEs), I impl
 * **Temporal Integration:** Diagonally-implicit Runge-Kutta (DIRK) Implicit-Explicit (IMEX) ARS2(2,2,2) for second-order time accuracy.
 * **Well-Balanced Property:** Ensuring the scheme preserves the "lake-at-rest" steady state over complex, non-flat bathymetry.
 * **Treatment of breaking:** A novel breaking criterion related to the enstrophy was proposed by **Kazakova & Richard, 2019**, where a variable analogous to the enstrophy, called the virtual enstrophy $$\psi$$, is solved by an identical enstrophy equation in parallel with the original equations, to avoid introducing sudden strong discontinuity to the system when breaking happens.\\
+<p>
 When there is
 <span style="display: inline-block; background: #f9f9f9; padding: 2px 10px; border-radius: 20px; border: 1px solid #ddd; vertical-align: middle; white-space: nowrap;">
     <label style="display: inline-block; cursor: pointer; font-size: 0.9em; margin-right: 12px; margin-bottom: 0;">
@@ -84,6 +85,7 @@ When there is
       <input type="radio" name="breaking-toggle" onclick="toggleBreaking('yes')" style="vertical-align: middle;"> breaking
     </label>
   </span>, the model solves
+</p>
 
 <div id="eq-no-breaking" style="display: block; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
   <p align="center"><i>\(\varphi\) remains zero or constant while \(\psi\) tracks the potential breaking intensity.</i></p>
@@ -94,7 +96,7 @@ When there is
       &\frac{\partial hW^\ast}{\partial t}+\frac{\partial hUW^\ast}{\partial x} = \frac{3}{2}P+4\frac{\alpha-1}{\alpha^2}{W^{\ast}}^2+\frac{\alpha-1}{2\alpha}gh^2\frac{\partial S}{\partial x}\\
     &\frac{\partial hP}{\partial t}+\frac{\partial hUP}{\partial x} = -a_c^2\left(\alpha h\frac{\partial U}{\partial x}+2W^\ast\right)\\
       &\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\varphi) \\
-      &\frac{\partial h\psi}{\partial t}+\frac{\partial hU\psi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\psi)+\frac{4\nu_T(\psi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\psi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}
+      &\frac{\partial h\psi}{\partial t}+\frac{\partial hU\psi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\psi)+\frac{4\nu_T(\psi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\psi)W^\ast}{\alpha^2h^2}\frac{\partial U}{\partial x}
   \end{aligned}
   $$
 </div>
@@ -108,7 +110,7 @@ When there is
       &\frac{\partial hW^\ast}{\partial t}+\frac{\partial hUW^\ast}{\partial x} = \frac{3}{2}P{\color{red}{+3\frac{\nu_T}{\alpha}\frac{\partial U}{\partial x}}}+4\frac{\alpha-1}{\alpha^2}{W^{\ast}}^2+\frac{\alpha-1}{2\alpha}gh^2\frac{\partial S}{\partial x}\\
     &\frac{\partial hP}{\partial t}+\frac{\partial hUP}{\partial x} = -a_c^2\left(\alpha h\frac{\partial U}{\partial x}+2W^\ast\right)\\
       &\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\varphi)\color{red}{+\frac{4\nu_T(\varphi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\varphi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}} \\
-      &\frac{\partial h\psi}{\partial t}+\frac{\partial hU\psi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\psi)+\frac{4\nu_T(\psi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\psi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}
+      &\frac{\partial h\psi}{\partial t}+\frac{\partial hU\psi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\psi)+\frac{4\nu_T(\psi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\psi)W^\ast}{\alpha^2h^2}\frac{\partial U}{\partial x}
   \end{aligned}
   $$
 </div>
