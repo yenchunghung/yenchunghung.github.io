@@ -73,40 +73,42 @@ To solve numerically the system of partial differential equations (PDEs), I impl
 * **Spatial Discretization:** Monotone Upstream Centered Scheme for Conservation Laws (MUSCL) with Rusanov flux and without slope limiter.
 * **Temporal Integration:** Diagonally-implicit Runge-Kutta (DIRK) Implicit-Explicit (IMEX) ARS2(2,2,2) for second-order time accuracy.
 * **Well-Balanced Property:** Ensuring the scheme preserves the "lake-at-rest" steady state over complex, non-flat bathymetry.
-* **Treatment of breaking:** A novel breaking criterion related to the enstrophy was proposed by **Kazakova & Richard, 2019**, where a variable analogous to the enstrophy, called the virtual enstrophy $$\psi$$, is solved by an identical enstrophy equation in parallel with the original equations, to avoid introducing sudden strong discontinuity to the system when breaking happens. When breaking doesn't happen/happen(I want a toggle here), the model solves
+* **Treatment of breaking:** A novel breaking criterion related to the enstrophy was proposed by **Kazakova & Richard, 2019**, where a variable analogous to the enstrophy, called the virtual enstrophy $$\psi$$, is solved by an identical enstrophy equation in parallel with the original equations, to avoid introducing sudden strong discontinuity to the system when breaking happens. When there is
 <div style="text-align: center; margin: 20px 0;">
   <div style="display: inline-block; background: #f1f1f1; padding: 10px 20px; border-radius: 30px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
-    <span style="font-weight: bold; margin-right: 15px;">Current State:</span>
     <label style="cursor: pointer; margin-right: 10px;">
       <input type="radio" name="breaking-toggle" onclick="toggleBreaking('no')" checked> No Breaking
     </label>
     <label style="cursor: pointer;">
-      <input type="radio" name="breaking-toggle" onclick="toggleBreaking('yes')"> Breaking Occurs
+      <input type="radio" name="breaking-toggle" onclick="toggleBreaking('yes')"> Breaking 
     </label>
   </div>
 </div>
+the model solves
 
 <div id="eq-no-breaking" style="display: block; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
-  <p align="center"><i>During propagation (No breaking): $\varphi$ remains zero or constant while $\psi$ tracks the potential breaking intensity.</i></p>
+  <p align="center"><i>$$\varphi$$ remains zero or constant while $$\psi$$ tracks the potential breaking intensity.</i></p>
   $$
   \begin{aligned}
       &\frac{\partial h}{\partial t}+\frac{\partial hU}{\partial x} = 0\\
-      &\frac{\partial hU}{\partial t}+\frac{\partial}{\partial x}\left(hU^2+\dots+hP\right)= \dots \\
-      &\dots \\
-      &\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = 0 \quad \color{red}{\text{(No Source)}} \\
+      &&\frac{\partial hU}{\partial t}+\frac{\partial}{\partial x}\left(hU^2+\frac{gh^2}{2}+h^3\varphi+hP\right)= -gh\frac{\partial b}{\partial x}\\
+      &\frac{\partial hW^\ast}{\partial t}+\frac{\partial hUW^\ast}{\partial x} = \frac{3}{2}P+4\frac{\alpha-1}{\alpha^2}{W^{\ast}}^2+\frac{\alpha-1}{2\alpha}gh^2\frac{\partial S}{\partial x}\\
+    &\frac{\partial hP}{\partial t}+\frac{\partial hUP}{\partial x} = -a_c^2\left(\alpha h\frac{\partial U}{\partial x}+2W^\ast\right)\\
+      &\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\varphi) \\
       &\frac{\partial h\psi}{\partial t}+\frac{\partial hU\psi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\psi)+\frac{4\nu_T(\psi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\psi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}
   \end{aligned}
   $$
 </div>
 
 <div id="eq-breaking" style="display: none; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
-  <p align="center"><i>During Breaking: The production terms are activated for $\varphi$ to dissipate energy.</i></p>
+  <p align="center"><i>The production terms are activated for $\varphi$ and both momentum equations to dissipate energy.</i></p>
   $$
   \begin{aligned}
       &\frac{\partial h}{\partial t}+\frac{\partial hU}{\partial x} = 0\\
-      &\frac{\partial hU}{\partial t}+\frac{\partial}{\partial x}\left(hU^2+\dots+hP\right)= \dots \\
-      &\dots \\
-      &\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\varphi)+\frac{4\nu_T(\varphi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\varphi)W}{\alpha^2h^2}\frac{\partial U}{\partial x} \\
+      &&\frac{\partial hU}{\partial t}+\frac{\partial}{\partial x}\left(hU^2+\frac{gh^2}{2}+h^3\varphi+hP\right)= \color{red}{\frac{\partial}{\partial x}\left(2\nu_T(\varphi)h\frac{\partial U}{\partial x}\right)}-gh\frac{\partial b}{\partial x}\\
+      &\frac{\partial hW^\ast}{\partial t}+\frac{\partial hUW^\ast}{\partial x} = \frac{3}{2}P\color{red}{+3\frac{\nu_T}{\alpha}\frac{\partial U}{\partial x}}+4\frac{\alpha-1}{\alpha^2}{W^{\ast}}^2+\frac{\alpha-1}{2\alpha}gh^2\frac{\partial S}{\partial x}\\
+    &\frac{\partial hP}{\partial t}+\frac{\partial hUP}{\partial x} = -a_c^2\left(\alpha h\frac{\partial U}{\partial x}+2W^\ast\right)\\
+      &\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\varphi)\color{red}{+\frac{4\nu_T(\varphi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\varphi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}} \\
       &\frac{\partial h\psi}{\partial t}+\frac{\partial hU\psi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\psi)+\frac{4\nu_T(\psi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\psi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}
   \end{aligned}
   $$
