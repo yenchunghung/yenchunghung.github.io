@@ -75,14 +75,15 @@ To solve numerically the system of partial differential equations (PDEs), I impl
 * **Well-Balanced Property:** Ensuring the scheme preserves the "lake-at-rest" steady state over complex, non-flat bathymetry.
 * **Treatment of breaking:** A novel breaking criterion related to the enstrophy was proposed by **Kazakova & Richard, 2019**, where a variable analogous to the enstrophy, called the virtual enstrophy $$\psi$$, is solved by an identical enstrophy equation in parallel with the original equations, to avoid introducing sudden strong discontinuity to the system when breaking happens.\\
 When there is
-<span style="display: inline-block; background: #f0f0f0; padding: 2px 8px; border-radius: 15px; border: 1px solid #ccc;">
-  <label style="cursor: pointer; font-size: 0.9em; margin-right: 5px;">
-    <input type="radio" name="breaking-toggle" onclick="toggleBreaking('no')" checked> no breaking
-  </label>
-  <label style="cursor: pointer; font-size: 0.9em;">
-    <input type="radio" name="breaking-toggle" onclick="toggleBreaking('yes')"> breaking
-  </label>
-</span>, the model solves
+<span style="display: inline-block; background: #f9f9f9; padding: 2px 10px; border-radius: 20px; border: 1px solid #ddd; vertical-align: middle; white-space: nowrap;">
+    <label style="display: inline-block; cursor: pointer; font-size: 0.9em; margin-right: 12px; margin-bottom: 0;">
+      <input type="radio" name="breaking-toggle" onclick="toggleBreaking('no')" checked style="vertical-align: middle;"> no breaking
+    </label>
+    
+    <label style="display: inline-block; cursor: pointer; font-size: 0.9em; margin-bottom: 0;">
+      <input type="radio" name="breaking-toggle" onclick="toggleBreaking('yes')" style="vertical-align: middle;"> breaking
+    </label>
+  </span>, the model solves
 
 <div id="eq-no-breaking" style="display: block; background: #fff; padding: 15px; border-radius: 10px; border: 1px solid #eee;">
   <p align="center"><i>\(\varphi\) remains zero or constant while \(\psi\) tracks the potential breaking intensity.</i></p>
@@ -103,8 +104,8 @@ When there is
   $$
   \begin{aligned}
       &\frac{\partial h}{\partial t}+\frac{\partial hU}{\partial x} = 0\\
-      &\frac{\partial hU}{\partial t}+\frac{\partial}{\partial x}\left(hU^2+\frac{gh^2}{2}+h^3\varphi+hP\right)= \color{red}{\frac{\partial}{\partial x}\left(2\nu_T(\varphi)h\frac{\partial U}{\partial x}\right)}-gh\frac{\partial b}{\partial x}\\
-      &\frac{\partial hW^\ast}{\partial t}+\frac{\partial hUW^\ast}{\partial x} = \frac{3}{2}P\color{red}{+3\frac{\nu_T}{\alpha}\frac{\partial U}{\partial x}}+4\frac{\alpha-1}{\alpha^2}{W^{\ast}}^2+\frac{\alpha-1}{2\alpha}gh^2\frac{\partial S}{\partial x}\\
+      &\frac{\partial hU}{\partial t}+\frac{\partial}{\partial x}\left(hU^2+\frac{gh^2}{2}+h^3\varphi+hP\right)= {\color{red}{\frac{\partial}{\partial x}\left(2\nu_T(\varphi)h\frac{\partial U}{\partial x}\right)}}-gh\frac{\partial b}{\partial x}\\
+      &\frac{\partial hW^\ast}{\partial t}+\frac{\partial hUW^\ast}{\partial x} = \frac{3}{2}P{\color{red}{+3\frac{\nu_T}{\alpha}\frac{\partial U}{\partial x}}}+4\frac{\alpha-1}{\alpha^2}{W^{\ast}}^2+\frac{\alpha-1}{2\alpha}gh^2\frac{\partial S}{\partial x}\\
     &\frac{\partial hP}{\partial t}+\frac{\partial hUP}{\partial x} = -a_c^2\left(\alpha h\frac{\partial U}{\partial x}+2W^\ast\right)\\
       &\frac{\partial h\varphi}{\partial t}+\frac{\partial hU\varphi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\varphi)\color{red}{+\frac{4\nu_T(\varphi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\varphi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}} \\
       &\frac{\partial h\psi}{\partial t}+\frac{\partial hU\psi}{\partial x} = -\frac{2}{h}\langle P^r\rangle(\psi)+\frac{4\nu_T(\psi)}{h}\left(\frac{\partial U}{\partial x}\right)^2-\frac{8\nu_T(\psi)W}{\alpha^2h^2}\frac{\partial U}{\partial x}
