@@ -42,7 +42,7 @@ author_profile: true
     position: absolute;
     left: -15px;      /* 突出在目錄左側 */
     top: 50%;          /* 垂直置中 */
-    transform: translateY(-50%);
+    transform: translateY(-25%);
     width: 15px;       /* 標籤寬度 */
     height: 30px;      /* 標籤高度 */
     background: #BABABA; 
