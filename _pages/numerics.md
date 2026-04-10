@@ -92,7 +92,7 @@ author_profile: true
   }
 
   html[data-theme='dark'] #side-nav-content strong {
-  color: #e0e0e0;            /* 亮灰色標題 */
+  color: #ffffff;            /* 亮灰色標題 */
   }
 
   html[data-theme='dark'] #side-nav ul li a {
@@ -105,7 +105,7 @@ author_profile: true
   }
 
   html[data-theme='dark'] #nav-toggle-tab {
-  background: #444444;       
+  background: #ababab;       
   color: #ffffff;
   }
 </style>
