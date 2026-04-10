@@ -100,8 +100,8 @@ author_profile: true
   }
 
   html[data-theme='dark'] #side-nav ul li a:hover {
-  background-color: #333333; /* 懸停時的深色底 */
-  color: #007bff;            /* 保持藍色高亮 */
+  background-color: #333333; 
+  color: #007bff;           
   }
 
   html[data-theme='dark'] #nav-toggle-tab {
@@ -111,7 +111,7 @@ author_profile: true
 
   /* --- Toggle dark mode --- */
   html[data-theme='dark'] #breaking-toggle-container {
-  background: #252a34 !important; /* 深色背景，!important 確保蓋過行內樣式 */
+  background: #6b6b6b !important;
   border-color: #454d5d !important;
   color: #eeeeee;
   }
