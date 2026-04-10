@@ -7,12 +7,14 @@ author_profile: true
 
 {% include base_path %}
 
-<div style="float: right; width: 200px; margin: 0 0 20px 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc;">
-  <strong style="display: block; margin-bottom: 10px;">Contents</strong>
+<div style="float: right; width: 300px; margin: 0 0 20px 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc; z-index: 10; position: -webkit-sticky; position: sticky; top: 20px;">
+  <strong style="display: block; margin-bottom: 10px; font-size: 1.1em; color: #333;">Contents</strong>
   <ul style="list-style: none; padding: 0; font-size: 0.9em; line-height: 1.6;">
-    <li><a href="#mathematical-framework--numerical-methods">Mathematical Framework & Numerical Methods</a></li>
-    <li><a href="#simulations">Simulations</a></li>
+    <li style="margin-bottom: 5px;"><a href="#mathematical-framework--numerical-methods" style="text-decoration: none; color: #007bff;">Framework</a></li>
+    <li style="margin-bottom: 5px;"><a href="#simulations" style="text-decoration: none; color: #007bff;">Simulations</a></li>
   </ul>
+  <hr style="margin: 10px 0; border: 0; border-top: 1px solid #eee;">
+  <a href="#" style="font-size: 0.8em; color: #999; text-decoration: none;">↑ Back to Top</a>
 </div>
 
 ## Mathematical Framework & Numerical Methods
