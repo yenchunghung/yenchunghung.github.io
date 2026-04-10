@@ -17,9 +17,8 @@ author_profile: true
     top: 80px;       /* 距離螢幕頂部的高度 */
     right: 0;          /* 緊貼右側邊緣 */
     width: 150px;      /* 展開時的寬度 */
-    background: var(--background-color, white); /* 如果變數不存在，預設為 white */
-  	color: var(--text-color, #333);
-  	border: 1px solid var(--border-color, #ddd);
+    background: white;
+  	border: 1px solid #ddd;
     border-radius: 8px 0 0 8px; /* 左側圓角 */
     box-shadow: -2px 2px 10px rgba(0,0,0,0.1);
     z-index: 1000;     /* 確保在所有內容最上方 */
@@ -84,6 +83,30 @@ author_profile: true
   #side-nav ul li a:hover {
     background-color: #f1f1f1;
     color: #007bff;
+  }
+
+  html[data-theme='dark'] #side-nav {
+  background: #1e1e1e;       /* 深色背景 */
+  border-color: #333;        /* 較暗的邊框 */
+  box-shadow: -2px 2px 10px rgba(0,0,0,0.5);
+  }
+
+  html[data-theme='dark'] #side-nav-content strong {
+  color: #e0e0e0;            /* 亮灰色標題 */
+  }
+
+  html[data-theme='dark'] #side-nav ul li a {
+  color: #bbbbbb;            /* 亮灰色文字 */
+  }
+
+  html[data-theme='dark'] #side-nav ul li a:hover {
+  background-color: #333333; /* 懸停時的深色底 */
+  color: #007bff;            /* 保持藍色高亮 */
+  }
+
+  html[data-theme='dark'] #nav-toggle-tab {
+  background: #444444;       
+  color: #ffffff;
   }
 </style>
 
