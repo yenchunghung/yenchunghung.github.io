@@ -11,12 +11,13 @@ author_profile: true
 
 ### 1. The Dispersive-Hyperbolic Model
 The following simulations are based on **depth-averaged models** that account for both dispersive effects and energy dissipation during wave breaking.
-<details>
+<details markdown="1">
 <summary style="cursor: pointer; color: #007bff; font-weight: bold;">
   Click to view Governing Equations & Variable Definitions
 </summary>
 
-<div style="margin-top: 15px; border-left: 3px solid #007bff; padding-left: 15px;">
+<div style="margin-top: 15px; border-left: 3px solid #007bff; padding-left: 15px;" markdown="1">
+	
  The physical setup and variable definitions are illustrated below:
 ![Model Setup](/images/numerics/setup.png){: style="width: 50%; display: block; margin: 0 auto;"}
 
