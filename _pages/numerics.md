@@ -8,10 +8,10 @@ author_profile: true
 {% include base_path %}
 
 <div style="float: right; width: 200px; margin: 0 0 20px 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc;">
-  <strong style="display: block; margin-bottom: 10px;">Quick Links</strong>
+  <strong style="display: block; margin-bottom: 10px;">Contents</strong>
   <ul style="list-style: none; padding: 0; font-size: 0.9em; line-height: 1.6;">
-    <li><a href="#mathematical-framework--numerical-methods">Framework</a></li>
-    <li><a href="#1-breaking-solitary-wave-propagation-over-flat-bed">Solitary Wave</a></li>
+    <li><a href="#mathematical-framework--numerical-methods">Mathematical Framework & Numerical Methods</a></li>
+    <li><a href="#simulations">Simulations</a></li>
   </ul>
 </div>
 
@@ -201,3 +201,5 @@ W^\ast < 0 & \text{(Improved Dispersive Model)}
 
 </div>
 </details>
+
+## Simulations
