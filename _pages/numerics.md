@@ -10,7 +10,14 @@ author_profile: true
 ## Mathematical Framework & Numerical Methods
 
 ### 1. The Dispersive-Hyperbolic Model
-The following simulations are based on **depth-averaged models** that account for both dispersive effects and energy dissipation during wave breaking. The physical setup and variable definitions are illustrated below:
+The following simulations are based on **depth-averaged models** that account for both dispersive effects and energy dissipation during wave breaking.
+<details>
+<summary style="cursor: pointer; color: #007bff; font-weight: bold;">
+  Click to view Governing Equations & Variable Definitions
+</summary>
+
+<div style="margin-top: 15px; border-left: 3px solid #007bff; padding-left: 15px;">
+ The physical setup and variable definitions are illustrated below:
 ![Model Setup](/images/numerics/setup.png){: style="width: 50%; display: block; margin: 0 auto;"}
 
 *Figure 1: Definition of physical variables and coordinate system for the depth-averaged model.*
@@ -38,6 +45,9 @@ $$
 * $$\nu_T$$: Turbulent viscosity.
 
 *Note: $$\langle P^r\rangle = \langle P^r\rangle(\varphi)$$ and $$\nu_T = \nu_T(\varphi)$$ are functions of enstrophy $$\varphi$$.*
+  
+</div>
+</details>
 
 ---
 
