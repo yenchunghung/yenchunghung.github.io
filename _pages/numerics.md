@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-<div style="float: right; width: 300px; margin: 0 0 20px 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc; z-index: 10; position: -webkit-sticky; position: sticky; top: 20px;">
+<div style="float: right; width: 150px; margin: 0 0 20px 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc; z-index: 10; position: -webkit-sticky; position: sticky; top: 80px;">
   <strong style="display: block; margin-bottom: 10px; font-size: 1.1em; color: #333;">Contents</strong>
   <ul style="list-style: none; padding: 0; font-size: 0.9em; line-height: 1.6;">
     <li style="margin-bottom: 5px;"><a href="#mathematical-framework--numerical-methods" style="text-decoration: none; color: #007bff;">Framework</a></li>
