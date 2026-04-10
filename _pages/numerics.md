@@ -108,6 +108,19 @@ author_profile: true
   background: #ababab;       
   color: #ffffff;
   }
+
+  /* --- Toggle dark mode --- */
+  html[data-theme='dark'] #breaking-toggle-container {
+  background: #252a34 !important; /* 深色背景，!important 確保蓋過行內樣式 */
+  border-color: #454d5d !important;
+  color: #eeeeee;
+  }
+
+  html[data-theme='dark'] #eq-no-breaking, 
+  html[data-theme='dark'] #eq-breaking {
+  background: #1e1e1e !important;
+  border: 1px solid #333 !important;
+  }
 </style>
 
 <div id="side-nav">
@@ -228,7 +241,7 @@ To solve numerically the system of partial differential equations (PDEs), I impl
 * **Treatment of breaking:** A novel breaking criterion related to the enstrophy was proposed by **Kazakova & Richard, 2019**, where a variable analogous to the enstrophy, called the virtual enstrophy $$\psi$$, is solved by an identical enstrophy equation in parallel with the original equations, to avoid introducing sudden strong discontinuity to the system when breaking happens.
 <p>
   When there is 
-  <span style="display: inline-block; background: #f9f9f9; padding: 4px 12px; border-radius: 20px; border: 1px solid #ddd; vertical-align: middle; white-space: nowrap;">
+  <span id="breaking-toggle-container" style="display: inline-block; background: #f9f9f9; padding: 4px 12px; border-radius: 20px; border: 1px solid #ddd; vertical-align: middle; white-space: nowrap;">
     <label style="display: inline-flex !important; align-items: center; cursor: pointer; font-size: 0.9em; margin-right: 15px; margin-bottom: 0; border: none;">
       <input type="radio" name="breaking-toggle" onclick="toggleBreaking('no')" checked style="display: inline-block !important; width: auto; margin: 0 5px 0 0; vertical-align: middle;">
       no breaking
