@@ -42,9 +42,9 @@ author_profile: true
     position: absolute;
     left: -15px;      /* 突出在目錄左側 */
     top: 50%;          /* 垂直置中 */
-    transform: translateY(-25%);
+    transform: translateY(-50%);
     width: 15px;       /* 標籤寬度 */
-    height: 30px;      /* 標籤高度 */
+    height: 40px;      /* 標籤高度 */
     background: #BABABA; 
     color: white;
     border-radius: 8px 0 0 8px; /* 左側圓角 */
@@ -52,7 +52,7 @@ author_profile: true
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.2em;
+    font-size: 0.6em;
     box-shadow: -2px 0 5px rgba(0,0,0,0.1);
   }
 
