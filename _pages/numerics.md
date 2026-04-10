@@ -143,17 +143,17 @@ author_profile: true
 		  		</a>
 		  		<ul style="list-style: none; padding-left: 12px; margin-top: 5px; border-left: 1px solid #eee; font-size: 0.85em;">
           			<li style="margin-bottom: 5px;">
-            			<a href="#1-breaking-solitary-wave-propagation-over-flat-bed" style="text-decoration: none; color: #666;">
+            			<a href="#1-breaking-solitary-wave-propagation-over-flat-bed" style="text-decoration: none; color: #999;">
 							Solitary Wave (Flat Bed)
 						</a>
             		</li>
             		<li style="margin-bottom: 5px;">
-            			<a href="#2-solitary-wave-propagation-over-a-slope" style="text-decoration: none; color: #666;">
+            			<a href="#2-solitary-wave-propagation-over-a-slope" style="text-decoration: none; color: #999;">
 							Solitary Wave (Slope)
 						</a>
             		</li>
             		<li style="margin-bottom: 5px;">
-            			<a href="#3-wavetrain-propagation" style="text-decoration: none; color: #666;">
+            			<a href="#3-wavetrain-propagation" style="text-decoration: none; color: #999;">
 							Wave Train
 						</a>
             		</li>
