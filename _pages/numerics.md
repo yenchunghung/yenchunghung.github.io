@@ -7,15 +7,106 @@ author_profile: true
 
 {% include base_path %}
 
-<div style="float: right; width: 150px; margin: 0 0 20px 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc; z-index: 10; position: -webkit-sticky; position: sticky; top: 80px;">
-  <strong style="display: block; margin-bottom: 10px; font-size: 1.1em; color: #333;">Contents</strong>
-  <ul style="list-style: none; padding: 0; font-size: 0.9em; line-height: 1.6;">
-    <li style="margin-bottom: 5px;"><a href="#mathematical-framework--numerical-methods" style="text-decoration: none; color: #007bff;">Framework</a></li>
-    <li style="margin-bottom: 5px;"><a href="#simulations" style="text-decoration: none; color: #007bff;">Simulations</a></li>
-  </ul>
-  <hr style="margin: 10px 0; border: 0; border-top: 1px solid #eee;">
-  <a href="#" style="font-size: 0.8em; color: #999; text-decoration: none;">↑ Back to Top</a>
+<style>
+  html { scroll-behavior: smooth; }
+  h2, h3 { scroll-margin-top: 100px; } /* 跳轉後上方留白，避免被 Header 遮住 */
+
+  /* 目錄主容器 */
+  #side-nav {
+    position: fixed; /* 固定在螢幕上，不隨頁面捲動消失 */
+    top: 150px;       /* 距離螢幕頂部的高度 */
+    right: 0;          /* 緊貼右側邊緣 */
+    width: 150px;      /* 展開時的寬度 */
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px 0 0 8px; /* 左側圓角 */
+    box-shadow: -2px 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;     /* 確保在所有內容最上方 */
+    transition: transform 0.3s ease; /* 滑動動畫 */
+    transform: translateX(0); /* 預設狀態：展開 */
+  }
+
+  /* 最小化時的狀態：向右滑出螢幕 */
+  #side-nav.minimized {
+    transform: translateX(200px); /* 滑出寬度，只露出標籤 */
+  }
+
+  /* 內部內容區塊 */
+  #side-nav-content {
+    padding: 15px;
+    overflow: hidden;
+  }
+
+  /* --- 側邊突出的小三角形標籤 --- */
+  #nav-toggle-tab {
+    position: absolute;
+    left: -30px;      /* 突出在目錄左側 */
+    top: 50%;          /* 垂直置中 */
+    transform: translateY(-50%);
+    width: 30px;       /* 標籤寬度 */
+    height: 60px;      /* 標籤高度 */
+    background: #007bff; /* 藍色背景 */
+    color: white;
+    border-radius: 8px 0 0 8px; /* 左側圓角 */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+  }
+
+  /* triangle icon */
+  #toggle-icon {
+    transition: transform 0.3s ease;
+    transform: rotate(180deg); /* 預設展開時箭頭向右 */
+  }
+
+  #side-nav.minimized #toggle-icon {
+    transform: rotate(0deg); /* 收納時箭頭向左 */
+  }
+
+  /* 目錄清單樣式 */
+  #side-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    font-size: 0.9em;
+    line-height: 2;
+  }
+  #side-nav ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 2px 5px;
+  }
+  #side-nav ul li a:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+  }
+</style>
+
+<div id="side-nav">
+  <div id="nav-toggle-tab" onclick="toggleSideNav()" title="Toggle Navigation">
+    <span id="toggle-icon">►</span>
+  </div>
+  <div id="side-nav-content">
+    <strong style="display: block; margin-bottom: 10px; color: #333; font-size: 1.1em;">Contents</strong>
+    <ul>
+      <li style="margin-bottom: 5px;"><a href="#mathematical-framework--numerical-methods" style="text-decoration: none; color: 	#007bff;">Framework</a></li>
+      <li style="margin-bottom: 5px;"><a href="#simulations" style="text-decoration: none; color: #007bff;">Simulations</a></li>
+      </ul>
+  	<hr style="margin: 10px 0; border: 0; border-top: 1px solid #eee;">
+  	<a href="#" style="font-size: 0.8em; color: #999; text-decoration: none;">↑ Back to Top</a>
+  </div>
 </div>
+
+<script>
+function toggleSideNav() {
+  const nav = document.getElementById('side-nav');
+  nav.classList.toggle('minimized');
+}
+</script>
 
 ## Mathematical Framework & Numerical Methods
 The following simulations are based on **depth-averaged models** that account for both dispersive effects and energy dissipation during wave breaking.
