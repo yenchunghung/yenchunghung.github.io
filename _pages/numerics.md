@@ -16,7 +16,7 @@ author_profile: true
     position: fixed; /* move with scrolling */
     top: 80px;       
     right: 0;          
-    width: 200px;      
+    width: 250px;      
     background: white;
   	border: 1px solid #ddd;
     border-radius: 8px 0 0 8px; /* round corner */
@@ -27,7 +27,7 @@ author_profile: true
   }
 
   #side-nav.minimized {
-    transform: translateX(200px);
+    transform: translateX(250px);
   }
 
   #side-nav-content {
