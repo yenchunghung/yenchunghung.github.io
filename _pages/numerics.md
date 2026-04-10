@@ -3,13 +3,17 @@ layout: archive
 title: "Numerics & Simulations"
 permalink: /numerics/
 author_profile: true
-toc: true
-toc_label: "Quick Navigation"
-toc_icon: "list"
-toc_sticky: true
 ---
 
 {% include base_path %}
+
+<div style="float: right; width: 200px; margin: 0 0 20px 20px; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fcfcfc;">
+  <strong style="display: block; margin-bottom: 10px;">Quick Links</strong>
+  <ul style="list-style: none; padding: 0; font-size: 0.9em; line-height: 1.6;">
+    <li><a href="#mathematical-framework--numerical-methods">Framework</a></li>
+    <li><a href="#1-breaking-solitary-wave-propagation-over-flat-bed">Solitary Wave</a></li>
+  </ul>
+</div>
 
 ## Mathematical Framework & Numerical Methods
 The following simulations are based on **depth-averaged models** that account for both dispersive effects and energy dissipation during wave breaking.
