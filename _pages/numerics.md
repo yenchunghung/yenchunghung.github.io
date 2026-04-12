@@ -342,7 +342,7 @@ To accurately determine the breaking zone, a revised breaking criterion is imple
 <center>
 	\(\widetilde{\psi_\eta} := \dfrac{\psi\max(0,\eta)}{g}\) and \(\widetilde{\psi_h} := \dfrac{\psi h}{g}\)
 </center>
-The triggering mechanism is governed by two threshold constants, $$\psi_0 > \psi_1 \geq 0$$, which define the activation and deactivation phases:
+The triggering mechanism is governed by two thresholds, $$\psi_0 > \psi_1 \geq 0$$, which define the activation and deactivation phases:
 
 * **Activation**: Breaking is initiated when $$\widetilde{\psi_\eta} > \psi_0$$.
 * **Persistence**: Once active, the breaking state is maintained as long as $$\widetilde{\psi_h} > \psi_1$$.
@@ -355,7 +355,7 @@ W < 0 & \text{(Weakly Dispersive Model)} \\
 W^\ast < 0 & \text{(Improved Dispersive Model)}
 \end{cases}$$
 </center>
-
+The thresholds were determined by fitting an empirical law to experimental data as a function of the bed slope $$\tan\beta$$.
 </div>
 </details>
 
@@ -386,7 +386,7 @@ This case represents a wave exceeding the stability limit identified by Watanabe
     	Your browser does not support the video tag.
   	</video>
   	<p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
-    	Animation 2: Spontaneous breaking of an unstable solitary wave (\(\mu = 0.78064\)). The breaking region, where dissipative terms are activated, is indicated by the semi-transparent red zone.
+    	Animation 2: Spontaneous breaking of an unstable solitary wave (\(\mu = 0.78064\)). The breaking region, where dissipative terms are activated, is indicated by the translucent red zone.
   	</p>
 </div>
 
