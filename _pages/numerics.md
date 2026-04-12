@@ -377,20 +377,19 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
 **Case A: Stable Solitary Wave ($$\mu = 0.66$$)**
 
 <div style="text-align: center; margin: 20px 0;">
-  <video id="stable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" title="Click to restart animation">
+  <video id="stable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" title="Click to restart animation">
     <source src="/images/numerics/Stable_Solitary.mp4" type="video/mp4">
-	Your browser does not support the video tag.
+    Your browser does not support the video tag.
   </video>
   <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
-	Animation 1: Propagation of a stable solitary wave (\(\mu = 0.66\)). 
+    Animation 1: Propagation of a stable solitary wave (\(\mu = 0.66\)). 
   </p>
 </div>
 
 **Case B: Unstable Solitary Wave ($$\mu = 0.78064$$)**
-This case represents a wave exceeding the stability limit identified by Watanabe et al. Physically, such a wave is prone to spontaneous breaking due to extreme non-linearity.
 
 <div style="text-align: center; margin: 20px 0;">
-  <video id="unstable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" title="Click to restart animation">
+  <video id="unstable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" title="Click to restart animation">
     <source src="/images/numerics/Unstable_Solitary.mp4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
@@ -400,31 +399,30 @@ This case represents a wave exceeding the stability limit identified by Watanabe
 </div>
 
 <script>
-  function setupSimulationVideos() {
-  	const videoIds = ['stable-sim-vid', 'unstable-sim-vid'];
-	videoIds.forEach(id => {
-	  const vid = document.getElementById(id);
-	  if (vid) {
-	    // Set initial play speed
-	    vid.playbackRate = 0.75;
-	    // Click to restart animation
-	    vid.onclick = function() {
-		  console.log('Restarting ' + id);
-		  this.currentTime = 0;
-		  this.play();
-	    };
-        // Make sure the play speed maintains
-        vid.onplay = function() {
-		  this.playbackRate = 0.75;
-	    };
-      }
-  	});
-  }
-  if (document.readyState === 'complete') {
-	setupSimulationVideos();
-  } else {
-	  window.addEventListener('load', setupSimulationVideos);
-	}
+  (function() {
+    var initVideos = function() {
+      var ids = ['stable-sim-vid', 'unstable-sim-vid'];
+      ids.forEach(function(id) {
+        var vid = document.getElementById(id);
+        if (vid) {
+          vid.playbackRate = 0.75;
+          vid.onclick = function() {
+            this.currentTime = 0;
+            this.play();
+          };
+          vid.onplay = function() {
+            this.playbackRate = 0.75;
+          };
+        }
+      });
+    };
+
+    if (document.readyState === 'complete') {
+      initVideos();
+    } else {
+      window.addEventListener('load', initVideos);
+    }
+  })();
 </script>
 ### 2. Solitary wave propagation over a slope
 
