@@ -118,6 +118,10 @@ author_profile: true
   background: #474747 !important;
   border: 1px solid #a6a6a6 !important;
   }
+
+  video {
+	  cursor: pointer;
+  }
 </style>
 
 <div id="side-nav">
@@ -368,7 +372,10 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
 **Case A: Stable Solitary Wave ($$\mu = 0.66$$)**
 
 <div style="text-align: center; margin: 20px 0;">
-	<video id="stable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+	<video id="stable-sim-vid" 
+		autoplay loop muted playsinline 
+		style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+		title="Click to restart animation">
 		<source src="/images/numerics/Stable_Solitary.mp4" type="video/mp4">
     	Your browser does not support the video tag.
   	</video>
@@ -381,7 +388,10 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
 This case represents a wave exceeding the stability limit identified by Watanabe et al. Physically, such a wave is prone to spontaneous breaking due to extreme non-linearity.
 
 <div style="text-align: center; margin: 20px 0;">
-	<video id="unstable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+	<video id="unstable-sim-vid" 
+		autoplay loop muted playsinline 
+		style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
+		title="Click to restart animation">
     	<source src="/images/numerics/Unstable_Solitary.mp4" type="video/mp4">
     	Your browser does not support the video tag.
   	</video>
@@ -391,8 +401,26 @@ This case represents a wave exceeding the stability limit identified by Watanabe
 </div>
 
 <script>
-	document.getElementById('stable-sim-vid').playbackRate = 0.75;
-  	document.getElementById('unstable-sim-vid').playbackRate = 0.75;
+  const videoIds = ['stable-sim-vid', 'unstable-sim-vid'];
+
+  videoIds.forEach(id => {
+    const vid = document.getElementById(id);
+    if (vid) {
+      // Set initial play speed
+      vid.playbackRate = 0.75;
+
+      // Click to restart animation
+      vid.addEventListener('click', function() {
+        this.currentTime = 0;
+        this.play();
+      });
+
+      // Make sure the play speed maintains
+      vid.addEventListener('play', function() {
+        this.playbackRate = 0.75;
+      });
+    }
+  });
 </script>
 
 ### 2. Solitary wave propagation over a slope
