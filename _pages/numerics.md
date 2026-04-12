@@ -377,10 +377,7 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
 **Case A: Stable Solitary Wave ($$\mu = 0.66$$)**
 
 <div style="text-align: center; margin: 20px 0;">
-	<video id="stable-sim-vid" 
-		autoplay loop muted playsinline 
-		style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
-		title="Click to restart animation">
+	<video id="stable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" title="Click to restart animation">
 		<source src="/images/numerics/Stable_Solitary.mp4" type="video/mp4">
     	Your browser does not support the video tag.
   	</video>
@@ -393,10 +390,7 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
 This case represents a wave exceeding the stability limit identified by Watanabe et al. Physically, such a wave is prone to spontaneous breaking due to extreme non-linearity.
 
 <div style="text-align: center; margin: 20px 0;">
-	<video id="unstable-sim-vid" 
-		autoplay loop muted playsinline 
-		style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);"
-		title="Click to restart animation">
+	<video id="unstable-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" title="Click to restart animation">
     	<source src="/images/numerics/Unstable_Solitary.mp4" type="video/mp4">
     	Your browser does not support the video tag.
   	</video>
@@ -416,26 +410,24 @@ This case represents a wave exceeding the stability limit identified by Watanabe
 		      	vid.playbackRate = 0.75;
 
 			    // Click to restart animation
-				vid.addEventListener('click', function(e) {
-		          	e.preventDefault();
-		          
-		          	console.log('Video ' + id + ' clicked. Restarting...'); // debugging use
+				vid.onclick = function() {
+		          	console.log('Restarting ' + id);
 		          	this.currentTime = 0;
 		          	this.play();
-		        }, false);
+		        };
 
       			// Make sure the play speed maintains
-      			vid.addEventListener('play', function() {
-        			this.playbackRate = 0.75;
-      			});
+      			vid.onplay = function() {
+		          	this.playbackRate = 0.75;
+		        };
     		}
   		});
 	}
 
-	if (document.readyState === 'loading') {
-	    document.addEventListener('DOMContentLoaded', setupSimulationVideos);
+	if (document.readyState === 'complete') {
+	    setupSimulationVideos();
 	} else {
-		setupSimulationVideos();
+		window.addEventListener('load', setupSimulationVideos);
 	  }
 </script>
 
