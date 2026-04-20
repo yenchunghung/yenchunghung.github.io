@@ -471,7 +471,7 @@ The time series of free surface elevation at the eight gauge points are shown in
         var vid = document.getElementById(id);
         if (vid) {
 		  if (id === 'solitary-slope-sim-vid' || id === 'wavetrain-bejisls-sim-vid') {
-            vid.playbackRate = 1.5; 
+            vid.playbackRate = 2; 
           } else {
               vid.playbackRate = 0.75;
 		  }
