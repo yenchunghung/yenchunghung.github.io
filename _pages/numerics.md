@@ -369,7 +369,7 @@ The thresholds were determined by fitting an empirical law to experimental data 
 </details>
 
 ## Simulations (Under construction)
-The following simulations are based on the improved dispersive model.
+The following simulations are based on the improved dispersive model. In the following simulation, the zone where the activation criterion is met is indicated by the translucent red zone. The true breaking region (not shown here), where dissipative terms are activated, is much narrower and localized at the wave front.
 
 ### 1. Solitary wave propagation over flat bed
 In the experiment of **Watanabe et al., 2001**, the physical limit of solitary wave stability was investigated to determine the critical non-linearity at which a wave begins to break. The waves are characterized by the non-linearity parameter $$\mu = a/h$$, amplitude over water depth.
@@ -394,7 +394,7 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
     Your browser does not support the video tag.
   </video>
   <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
-    Animation 2: Spontaneous breaking of an unstable solitary wave (\(\mu = 0.78064\)). The zone where the activation criterion is met is indicated by the translucent red zone. The true breaking region, where dissipative terms are activated, is much narrower and localized at the wave front.
+    Animation 2: Spontaneous breaking of an unstable solitary wave (\(\mu = 0.78064\)). 
   </p>
 </div>
 
@@ -429,7 +429,7 @@ This section presents two simulations of wave train propagation. The first case 
     Your browser does not support the video tag.
   </video>
   <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
-    Animation 4: Wave train propagation over a slope \(\tan \beta = 1/35\). The solid vertical lines indicate the locations of the six gauges.
+    Animation 4: Wave train propagation over a slope \(\tan \beta = 1/35\). The solid vertical lines indicate the locations of the six gauges. A 7.5-meter-wide absorbing layer is applied to the right boundary of the domain.
   </p>
 </div>
 
@@ -442,14 +442,35 @@ The time series of free surface elevation at the six gauge points are shown in t
   </p>
 </div>
 
+The second case focuses on the experiment of **Beji \& Battjes, 1993**, in which regular sinusoidal and irregular wave trains are generated and propagate over a submerged bar. The regular sinusoidal wave train with period $$T = 2.5$$ s and amplitudes $$a_\ast∗ = 0.022$$ m are generated (spilling breaker type). A 5 m sponge layer is applied on the right side of the domain to absorb outgoing waves and the incoming wave is generated on the left side as a Dirichlet boundary condition. The eight gauge locations are marked by solid vertical lines in the simulation below.
+
+<div style="text-align: center; margin: 20px 0;">
+  <video id="wavetrain-bejisls-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" title="Click to restart animation">
+    <source src="/images/numerics/WaveTrain_BejiSLS.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
+    Animation 5: Wave train propagation over a submerged bar. The solid vertical lines indicate the locations of the eight gauges. 
+  </p>
+</div>
+
+The time series of free surface elevation at the eight gauge points are shown in the figure below.
+
+<div style="text-align: center; margin: 30px 0;">
+  <img src="/images/numerics/WaveTrain_BejiSLS.png" alt="Gauge point comparison Beji SLS" style="width: 70%; max-width: 900px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+  <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 15%;">
+    Figure 4: Time series of free surface elevation at eight gauge points of the regular wave train. Solid red lines represent numerical results, and black circles denote experimental data.
+  </p>
+</div>
+
 <script>
   (function() {
     var initVideos = function() {
-      var ids = ['stable-sim-vid', 'unstable-sim-vid', 'solitary-slope-sim-vid', 'wavetrain-cox-sim-vid'];
+      var ids = ['stable-sim-vid', 'unstable-sim-vid', 'solitary-slope-sim-vid', 'wavetrain-cox-sim-vid', 'wavetrain-bejisls-sim-vid'];
       ids.forEach(function(id) {
         var vid = document.getElementById(id);
         if (vid) {
-		  if (id === 'solitary-slope-sim-vid') {
+		  if (id === 'solitary-slope-sim-vid' || id === 'wavetrain-bejisls-sim-vid') {
             vid.playbackRate = 1.5; 
           } else {
               vid.playbackRate = 0.75;
