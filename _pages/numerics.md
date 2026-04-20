@@ -368,7 +368,7 @@ The thresholds were determined by fitting an empirical law to experimental data 
 </div>
 </details>
 
-## Simulations (Under construction)
+## Simulations
 The following simulations are based on the improved dispersive model. In the following simulation, the zone where the activation criterion is met is indicated by the translucent red zone. The true breaking region (not shown here), where dissipative terms are activated, is much narrower and localized at the wave front.
 
 ### 1. Solitary wave propagation over flat bed
