@@ -398,10 +398,34 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
   </p>
 </div>
 
+### 2. Solitary wave propagation over a slope
+In the experiment of **Hsiao et al., 2008**, a solitary wave of amplitude $$a_\ast$$ is generated and propagates over the
+topography of slope $$\beta$$ with $$\tan \beta = 1/60$$ at a given still water level $$h_0$$. The experiment consists of 54 trials with different choices of still water level $$h_0$$ and nonlinearity parameter $$\mu = a_\ast/h_0$$ from which the wave amplitude
+can be calculated. The following simulation and gauge point comparison are from trial 41, where $$h_0 = 2.2$$ m and $$\mu = 0.137$$ were chosen.
+
+<div style="text-align: center; margin: 20px 0;">
+  <video id="solitary-slope-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" title="Click to restart animation">
+    <source src="/images/numerics/Hsiao_Trial41.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
+    Animation 3: Solitary wave \(\mu = 0.137\) propagation over a slope \(\tan \beta = 1/60\). 
+  </p>
+</div>
+
+<div style="text-align: center; margin: 30px 0;">
+<img src="/images/numerics/Hsiao_Trial41.png" alt="Gauge point comparison Trial 41" style="width: 90%; max-width: 900px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+<p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
+Figure 2: Time series of free surface elevation at multiple gauge locations for Trial 41. Solid red lines represent numerical results, and black circles/lines denote experimental data.
+</p>
+</div>
+
+### 3. Wavetrain propagation
+
 <script>
   (function() {
     var initVideos = function() {
-      var ids = ['stable-sim-vid', 'unstable-sim-vid'];
+      var ids = ['stable-sim-vid', 'unstable-sim-vid', 'solitary-slope-sim-vid'];
       ids.forEach(function(id) {
         var vid = document.getElementById(id);
         if (vid) {
@@ -424,6 +448,3 @@ In the experiment of **Watanabe et al., 2001**, the physical limit of solitary w
     }
   })();
 </script>
-### 2. Solitary wave propagation over a slope
-
-### 3. Wavetrain propagation
