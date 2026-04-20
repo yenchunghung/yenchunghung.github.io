@@ -414,18 +414,38 @@ can be calculated. The following simulation and gauge point comparison are from 
 </div>
 
 <div style="text-align: center; margin: 30px 0;">
-<img src="/images/numerics/Hsiao_Trial41.png" alt="Gauge point comparison Trial 41" style="width: 70%; max-width: 900px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-<p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 15%;">
-Figure 2: Time series of free surface elevation at multiple gauge locations for Trial 41. Solid red lines represent numerical results, and black circles/lines denote experimental data.
-</p>
+  <img src="/images/numerics/Hsiao_Trial41.png" alt="Gauge point comparison Trial 41" style="width: 70%; max-width: 900px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+  <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 15%;">
+    Figure 2: Time series of free surface elevation at multiple gauge locations for Trial 41. Solid red lines represent numerical results, and black circles/lines denote experimental data.
+  </p>
 </div>
 
 ### 3. Wavetrain propagation
+This section presents two simulations of wave train propagation. The first case replicates the experiment by **Cox, 1995**, in which a wave train with $$a_\ast = 0.115$$ m and $$T = 2.2$$ s propagates over a $$1/35$$ slope. The six gauge locations are marked by solid vertical lines in the simulation below.
+
+<div style="text-align: center; margin: 20px 0;">
+  <video id="wavetrain-cox-sim-vid" autoplay loop muted playsinline style="width: 85%; max-width: 800px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: pointer;" title="Click to restart animation">
+    <source src="/images/numerics/WaveTrain_Cox.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 10%;">
+    Animation 4: Wave train propagation over a slope \(\tan \beta = 1/35\). The solid vertical lines indicate the locations of the six gauges.
+  </p>
+</div>
+
+The time series of free surface elevation at the six gauge points are shown in the figure below.
+
+<div style="text-align: center; margin: 30px 0;">
+  <img src="/images/numerics/WaveTrain_Cox.png" alt="Gauge point comparison Cox" style="width: 70%; max-width: 900px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
+  <p style="font-style: italic; color: #666; margin-top: 10px; padding: 0 15%;">
+    Figure 3: Time series of free surface elevation at six gauge points. Solid red lines represent numerical results, and black circles denote experimental data.
+  </p>
+</div>
 
 <script>
   (function() {
     var initVideos = function() {
-      var ids = ['stable-sim-vid', 'unstable-sim-vid', 'solitary-slope-sim-vid'];
+      var ids = ['stable-sim-vid', 'unstable-sim-vid', 'solitary-slope-sim-vid', 'wavetrain-cox-sim-vid'];
       ids.forEach(function(id) {
         var vid = document.getElementById(id);
         if (vid) {
